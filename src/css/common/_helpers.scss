@@ -1,0 +1,44 @@
+body#tinymce{
+    font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin: 9px 10px;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    background-color: white;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.vertical-center-wrapper{
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.vertical-center{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.color-brand{
+    @extend .color-blue;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+@include keyframes(spin){
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}

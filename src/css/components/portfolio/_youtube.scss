@@ -1,0 +1,49 @@
+.youtube-portfolio{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    @include mobile(){
+        width: $portfolio-width-mobile;
+        margin-right:auto;
+        margin-left:auto;
+    }
+}
+
+.youtube-portfolio-title{
+    margin-bottom: 20px;
+}
+
+.youtube-portfolio-content,
+.youtube-portfolio-items{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.youtube-portfolio-content{
+    width: $portfolio-content-width;
+    padding: 0px 15px;
+}
+
+.youtube-portfolio-items{
+    width: $portfolio-item-width * 3;
+    position: relative;
+    @include mobile(){
+        width: auto;
+    }
+}
+
+.youtube-portfolio-no-content {
+    .youtube-portfolio-items{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.youtube-portfolio-item{
+    width: $portfolio-item-width;
+    height: $portfolio-item-height;
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    margin-top: -4px;
+}

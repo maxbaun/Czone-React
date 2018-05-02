@@ -1,0 +1,34 @@
+.portfolio-item{
+    width: $profile-portfolio-item-width;
+    height: $profile-portfolio-item-height;
+}
+
+.portfolio-item-content{
+    @include transition(all $transition_time);
+    @include opacity(0);
+    @extend .vertical-center-wrapper;
+    @extend .text-center;
+    background-color: rgba($color_black, .7);
+    padding: 0px 20px;
+    color: $color_white;
+
+    @include mobile{
+        @include opacity(1);
+    }
+}
+
+.portfolio-item:hover{
+    .portfolio-item-content{
+        @include opacity(1);
+    }
+}
+
+.portfolio-item-content-title{
+    @extend .vertical-center;
+    margin: 0px;
+}
+
+.profile-portfolio{
+	@include opacity(0);
+	@include transition(all $transition_time $transition_time);
+}

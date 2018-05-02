@@ -1,0 +1,11 @@
+.content-block-testimonial{
+    p.from{
+        margin-top: 10px;
+        padding-bottom: 5px;
+    }
+    &:last-child{
+        p.from{
+            padding-bottom: 0px;
+        }
+    }
+}

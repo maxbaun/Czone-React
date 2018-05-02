@@ -1,0 +1,40 @@
+.modal-dialog{
+    .close,
+    .glyphicon{
+        font-size: 24px;
+        @include transition(all $transition_time);
+        @include opacity(.5);
+    }
+
+    .close:hover,
+    .glyphicon:hover{
+        @include opacity(.8);
+    }
+}
+.modal-title{
+    @extend h1;
+    @extend .text-center;
+}
+
+.ekko-lightbox{
+    .modal-body{
+        padding: 10px 30px;
+    }
+}
+
+.ekko-lightbox-nav-overlay{
+    .glyphicon{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        color: $color_white;
+    }
+
+    .glyphicon-chevron-left{
+        left: 2px;
+    }
+    .glyphicon-chevron-right{
+        right: 2px;
+    }
+}

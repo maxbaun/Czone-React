@@ -1,0 +1,31 @@
+section{
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &.title-sm .section-title{
+        h1{
+            font-size: $font-size-h3;
+        }
+        .title-breaker{
+            height: 16px;
+        }
+    }
+}
+section.section-small{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.section-title{
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    *:not(.title-breaker){
+        margin: 0px;
+    }
+    span{
+        vertical-align: middle;
+    }
+    a{
+        color: inherit;
+    }
+}

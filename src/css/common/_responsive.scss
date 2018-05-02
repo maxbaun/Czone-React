@@ -1,0 +1,80 @@
+// Variables
+$xs     : 480px;
+$sm     : 768px;
+$md     : 992px;
+$lg     : 1200px;
+$xs-max : ($sm - 1);
+$sm-max : ($md - 1);
+$md-max : ($lg - 1);
+
+@mixin widescreen{
+    @media (min-width: #{$lg}){
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media (min-width: #{$md}) and (max-width: #{$md-max}){
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media (min-width: #{$sm}) and (max-width: #{$sm-max}){
+        @content;
+    }
+}
+
+@mixin mobile{
+    @media (max-width: #{$xs-max}){
+        @content;
+    }
+}
+
+@mixin small{
+    @media (max-width: #{$sm-max}){
+        @content;
+    }
+}
+
+@mixin not-mobile{
+    @media (min-width: #{$sm-max}){
+        @content;
+    }
+}
+
+@mixin nav-collapse{
+	@media (max-width: 1126px){
+		@content;
+	}
+}
+
+@mixin col-margin-bottom($margin){
+    .col-lg-12:not(:only-child){
+        @include desktop(){
+            margin-bottom: $margin;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+    }
+    .col-md-12:not(:only-child){
+        @include tablet(){
+            margin-bottom: $margin;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+    }
+    .col-sm-12:not(:only-child),
+    .col-xs-12:not(:only-child){
+        @include mobile(){
+            margin-bottom: $margin;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+@include col-margin-bottom(20px);

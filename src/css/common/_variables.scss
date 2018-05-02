@@ -1,0 +1,90 @@
+// Brand colors
+$color_blue:            #4990CD;
+$color_dark_blue:       #2E6CA2;
+$color_white:           #ffffff;
+$color_black:           #000000;
+
+// Glyphicons font path
+$icon-font-path:        "../fonts/";
+
+// Grid settings
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;
+
+// Colors
+$brand-primary:             $color_blue;
+$body-bg:                   $color_black;
+$text-color:                $color_white;
+$modal-content-bg:          $color_black;
+$modal-footer-border-color: $color_black;
+$modal-header-border-color: $color_black;
+$close-color:               $color_white;
+
+//Page
+$page-content-width: 685px;
+
+//content-block
+$content-block-width: 510px;
+
+//card
+$card-width: 360px;
+
+// Transitions
+$transition_time: 0.2s;
+
+// Typography
+$font-size-base: 12px;
+$font-size-h1: 20px;
+$font-size-h2: 18px;
+$font-size-h3: 16px;
+$font-size-h4: 14px;
+$font-size-h5: 12px;
+$font-size-h6: 12px;
+$line-height-base: 1.4;
+$link-hover-decoration: none;
+
+//Navbar
+$navbar-default-bg: $color_black;
+$navbar-default-brand-color: $color_black;
+$navbar-padding-vertical: 10px;
+$nav-link-padding: 33px 7px;
+$navbar-margin-bottom: 0px;
+
+$navbar-default-toggle-hover-bg: $color_black;
+$navbar-default-toggle-border-color: $color_white;
+$navbar-default-toggle-icon-bar-bg: $color_white;
+
+//Dropdowns
+$dropdown-bg: $color_black;
+$dropdown-link-color: $color_white;
+$dropdown-link-hover-color: $color_blue;
+$dropdown-link-hover-bg: transparent;
+
+//Navbar links
+$navbar-default-link-color:     $color_white;
+$navbar-default-link-hover-color: $color_blue;
+$navbar-default-link-active-color: $color_blue;
+
+//Hero carousel
+$hero-carousel-cell-height: 357px;
+$hero-carousel-cell-height-large: 543px;
+$hero-carousel-cell-height-mobile: 200px;
+$hero-carousel-dot-height: 20px;
+
+// rewards
+$reward-icon-size: 130px;
+
+
+//Portfolio
+$portfolio-item-width: 135px;
+$portfolio-width-mobile: $portfolio-item-width * 2;
+$portfolio-item-height: 75px;
+$portfolio-content-width: $page-content-width - ($portfolio-item-width * 3);
+
+$profile-portfolio-item-width: $portfolio-item-width;
+$profile-portfolio-item-height: $profile-portfolio-item-width;
+
+
+//spinner
+$spinner-size: 25px;
+$spin-duration: 1s;

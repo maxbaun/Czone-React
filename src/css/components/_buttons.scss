@@ -1,0 +1,4 @@
+.btn,
+input[type="submit"]{
+    @include transition(all $transition_time);
+}

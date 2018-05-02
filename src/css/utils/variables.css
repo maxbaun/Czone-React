@@ -1,0 +1,20 @@
+$font: Arial, Helvetica, sans-serif;
+$heading: ArtDepartmentJNL;
+$headingShadow: 1px 1px 1px hsla(0, 0%, 100%, 0.75);
+$fontIcon: 'Font Awesome 5 Free';
+
+:root {
+	--blue: #8BD1FD;
+}
+
+$white: ffffff;
+$blueLight: #31A6C8;
+$blue: #8BD1FD;
+$blueDark: color($blue blackness(10%));
+$green: #63C7B2;
+$greenDark: color($green lightness(10%));
+$black: #000;
+$white: #FFF;
+$blackLight: rgba(0, 0, 0, 0.9);
+$grey: #E4E4E4;
+$greyLight: #F8F9FA;

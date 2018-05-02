@@ -1,0 +1,47 @@
+.page-nav{
+    list-style: none;
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+    li{
+        display: inline-block;
+        padding: 10px 20px;
+		vertical-align: top;
+		white-space: nowrap;
+        @include transition(all $transition_time);
+        @include mobile(){
+            width: 50%;
+        }
+        a{
+            padding: 0;
+            font-size: 14px;
+        }
+    }
+}
+
+.page-nav.tight{
+    li{
+        a{
+            padding: 10px;
+        }
+    }
+}
+
+.czone-page-nav-class{
+	.page-nav{
+		@include mobile() {
+			text-align: left;
+		}
+
+		li{
+			@include mobile() {
+				padding: 10px;
+			}
+			a{
+				@include mobile() {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}

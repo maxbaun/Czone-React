@@ -1,0 +1,31 @@
+.bg-black{
+    background-color: $color_black;
+    color: $color_white;
+
+    a{
+        color: $color_white;
+        &:hover{
+            color: $color_blue;
+        }
+    }
+
+    .widget{
+        h3{
+            color: $color_blue;
+        }
+        a{
+            color: $color_white;
+            &:hover{
+                color: $color_blue;
+            }
+        }
+    }
+
+    .content-block-testimonial{
+        p.from{
+            color: $color_blue;
+        }
+    }
+
+
+}

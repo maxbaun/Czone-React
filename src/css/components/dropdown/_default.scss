@@ -1,0 +1,27 @@
+.dropdown-toggle{
+    .caret{
+        display: none;
+    }
+}
+
+.dropdown-menu{
+    margin:0px;
+    @include border-radius(0px);
+    @include small(){
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+}
+
+@include not-mobile(){
+    .dropdown:hover{
+        .dropdown-menu{
+            display: block;
+        }
+    }
+}

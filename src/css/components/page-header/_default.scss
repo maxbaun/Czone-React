@@ -1,0 +1,19 @@
+.page-header{
+    margin: 20px 0px;
+    padding-bottom: 0px;
+    border: none;
+    text-transform: uppercase;
+    h1{
+        margin: 0px;
+    }
+}
+
+.title-breaker{
+    height: 20px;
+    background-color: $color_white;
+    width: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: 5px;
+}

@@ -1,0 +1,17 @@
+.single-post-content .section-title{
+    margin-bottom: 10px;
+}
+
+.single-post-text p{
+    @extend .content-block;
+}
+
+.single-post-text *:last-child{
+    margin-bottom: 0px;
+}
+
+.single-post-meta{
+    a{
+        color: $color_blue;
+    }
+}

@@ -1,0 +1,17 @@
+.content-block{
+    margin-bottom: 20px;
+    max-width: $content-block-width;
+    margin-right: auto;
+    margin-left: auto;
+    h1{
+        margin-top: 0px;
+    }
+    p{
+        margin-bottom: 0px;
+    }
+    &:not(:only-child){
+        &:last-child{
+            margin-bottom:0px;
+        }
+    }
+}

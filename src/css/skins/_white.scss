@@ -1,0 +1,15 @@
+.bg-white{
+    background-color: $color_white;
+    color: $color_black;
+
+    a{
+        color: $color_blue;
+        &:hover{
+            color: $color_blue;
+        }
+    }
+}
+
+.color-white{
+    color: $color_white;
+}

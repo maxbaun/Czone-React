@@ -1,0 +1,9 @@
+.landing-page .carousel-content-wrapper .container{
+    @extend .vertical-center-wrapper;
+}
+
+.landing-page .carousel-content{
+    @extend .vertical-center;
+    text-align: center;
+    margin-left: 0px;
+}

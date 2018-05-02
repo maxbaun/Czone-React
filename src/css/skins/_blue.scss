@@ -1,0 +1,20 @@
+.bg-blue{
+    background-color: $color_blue;
+    color: $color_white;
+
+    a{
+        color: $color_white;
+        &:hover{
+            color: $color_white;
+        }
+    }
+
+    &.page-nav li:hover,
+    &.page-nav a:active{
+        background-color:$color_dark_blue;
+    }
+}
+
+.color-blue{
+    color: $color_blue;
+}

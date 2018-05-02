@@ -1,0 +1,13 @@
+.content-loader{
+    border-radius: 50%;
+    width: $spinner-size;
+    height: $spinner-size;
+    border: .25rem solid $color_blue;
+    border-top-color: $color_white;
+    @include animation(spin $spin-duration infinite linear);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: ($spinner-size / 2) * -1;
+    margin-left: ($spinner-size / 2) * -1;
+}
