@@ -1,13 +1,10 @@
 @import "common/variables";
 @import "common/mixins";
 
-// Automatically injected Bower dependencies via wiredep (never manually edit this block)
-// bower:scss
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "~font-awesome/scss/font-awesome";
 @import "~flickity/css/flickity.css";
-// endbower
-
+@import "~baguettebox.js/dist/baguetteBox.min.css";
 
 @import "common/responsive";
 @import "common/global";

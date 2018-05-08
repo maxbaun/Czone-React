@@ -5,7 +5,6 @@ import Img from 'gatsby-image';
 import CSS from '../css/modules/hero.module.css';
 
 const Hero = ({title, subtitle, image, credit}) => {
-	console.log(image);
 	return (
 		<div className={CSS.hero}>
 			<div className={CSS.inner}>
@@ -14,13 +13,17 @@ const Hero = ({title, subtitle, image, credit}) => {
 						resolutions={image}
 					/>
 				</div>
-				<div className={CSS.content}>
-					<h1 className={CSS.title}>{title}</h1>
-					<h3 className={CSS.subtitle}>{subtitle}</h3>
-					<span
-						dangerouslySetInnerHTML={{__html: credit}} // eslint-disable-line react/no-danger
-						className={CSS.credit}
-					/>
+				<div className={CSS.contentWrap}>
+					<div className={CSS.content}>
+						<div className="container">
+							<h1 className={CSS.title}>{title}</h1>
+							<h3 className={CSS.subtitle}>{subtitle}</h3>
+							<span
+								dangerouslySetInnerHTML={{__html: credit}} // eslint-disable-line react/no-danger
+								className={CSS.credit}
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -24,6 +24,11 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 							status
 							template
 							parent: wordpress_parent
+							acf {
+								landingPageParent: post_landing_page_parent {
+									wpid: wordpress_id
+								}
+							}
 						}
 					}
 				}
@@ -51,7 +56,8 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 					path: getSlug(edge, result.data.allWordpressPage.edges), // `/${edge.node.slug}`
 					component: getPageTemplate(edge.node.template),
 					context: {
-						id: edge.node.id
+						id: edge.node.id,
+						landingParent: getLandingParent(edge.node, result.data.allWordpressPage.edges)
 					}
 				});
 			});
@@ -71,9 +77,23 @@ function getSlug(edge, edges) {
 }
 
 function getPageTemplate(template) {
-	// if (template === 'template-array13.php') {
-	// 	return path.resolve(`./src/templates/array13.js`);
-	// }
+	if (template === 'template-full-width.php') {
+		return path.resolve(`./src/templates/fullWidth.js`);
+	}
 
 	return path.resolve(`./src/templates/page.js`);
+}
+
+function getLandingParent(page, pages) {
+	if (!page.acf || !page.acf.landingPageParent) {
+		return;
+	}
+
+	const parent = pages.find(p => p.node.wpid === page.acf.landingPageParent.wpid);
+
+	if (!parent) {
+		return;
+	}
+
+	return parent.node.id;
 }

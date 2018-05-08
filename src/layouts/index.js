@@ -1,65 +1,15 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
-import Flickity from 'flickity';
-import imagesLoaded from 'imagesloaded';
-import Isotope from 'isotope-layout';
+import graphql from 'graphql';
 
 import '../css/main.scss';
+
+import Header from '../components/header';
 
 export default class DefaultLayout extends Component {
 	static propTypes = {
 		children: PropTypes.func.isRequired,
 		location: PropTypes.object.isRequired
-	}
-
-	componentDidMount() {
-		this.initCarousel();
-		this.initDjep();
-		this.initGallery();
-		window.WeddingWire.ensureInit(() => {
-			window.WeddingWire.createWWRated2013({
-				vendorId: '45a90fd32bc668fa'
-			});
-		});
-	}
-
-	initCarousel() {
-		const carousel = Array.from(document.querySelectorAll('.js-flickity'));
-
-		carousel.forEach(elem => {
-			let options = elem.getAttribute('data-flickity-options');
-			options = JSON.parse(options);
-			new Flickity(elem, options); // eslint-disable-line no-new
-
-			elem.style.opacity = 1;
-		});
-	}
-
-	initDjep() {
-		window.SendPasswordWindow = () => {
-			const w = window.open(
-				'http://czoneplanning.com/sendpassword.asp?typeoflogon=client',
-				'w',
-				'width=350,height=150,menubar=no,scrollbars=no,resizable=yes,location=no,directories=no,status=no'
-			);
-
-			w.focus();
-		};
-	}
-
-	initGallery() {
-		const galleries = Array.from(document.querySelectorAll('.gallery'));
-
-		galleries.forEach(gallery => {
-			imagesLoaded(gallery, () => {
-				new Isotope(gallery, { // eslint-disable-line no-new
-					itemSelector: '.gallery-item',
-					layoutMode: 'masonry'
-				});
-				gallery.style.opacity = 1;
-			});
-		});
 	}
 
 	// $('.gallery').each(function () {
@@ -76,7 +26,26 @@ export default class DefaultLayout extends Component {
 
 	render() {
 		return (
-			<div>{this.props.children()}</div>
+			<div>
+				<Header menu={this.props.data.mainMenu}/>
+				<div>{this.props.children()}</div>
+			</div>
 		);
 	}
 }
+
+export const mainMenuQuery = graphql`
+query mainMenuQuery {
+	mainMenu: wordpressWpApiMenusMenusItems(name: {eq: "Main Menu"}) {
+		name
+		items {
+		  title
+		  url
+		  items: wordpress_children {
+			title
+			url
+		  }
+		}
+	}
+}
+`;

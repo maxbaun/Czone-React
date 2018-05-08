@@ -2,33 +2,68 @@ import React from 'react';
 import graphql from 'graphql';
 import Img from 'gatsby-image';
 
-import {Page, Site} from './query';
-import Meta from '../components/meta';
+import Head from '../components/head';
 import Hero from '../components/hero';
+import {initPageElements} from '../utils/pageHelpers';
 
 export default class PageTemplate extends React.Component {
+	componentDidMount() {
+		initPageElements();
+	}
+
+	getHeroData() {
+		const {wordpressPage, landingParent} = this.props.data;
+		const heroPage = landingParent ? landingParent : wordpressPage;
+
+		let title = heroPage.acf.heroTitle;
+
+		if (landingParent) {
+			title += ` | ${wordpressPage.acf.landingCity}, ${wordpressPage.acf.landingState}`;
+		}
+
+		return {
+			image: heroPage.image ? heroPage.image.localFile.childImageSharp.hero : null,
+			title,
+			subtitle: heroPage.acf.heroSubtitle,
+			credits: heroPage.acf.heroCredits
+		};
+	}
+
 	render() {
-		const siteMetadata = this.props.data.site.siteMetadata;
+		const siteMeta = this.props.data.site.siteMeta;
 		const currentPage = this.props.data.wordpressPage;
 		const yoast = currentPage.yoast;
-
-		console.log(currentPage);
+		const parentPage = this.props.data.landingParent;
+		const hero = this.getHeroData();
 
 		return (
 			<div>
-				<Meta {...yoast}/>
-				<Hero
-					title={currentPage.acf.heroTitle}
-					subtitle={currentPage.acf.heroSubtitle}
-					credits={currentPage.acf.heroCredit}
-					image={currentPage.image.localFile.childImageSharp.resolutions}
+				<Head
+					{...yoast}
+					location={this.props.location}
+					defaultTitle={`${siteMeta.title} | ${currentPage.title}`}
+					image={currentPage.image ? currentPage.image.localFile.childImageSharp.full.src : null}
+					excerpt={currentPage.excerpt}
 				/>
+				{hero.image ?
+					<Hero
+						title={hero.title}
+						subtitle={hero.subtitle}
+						credits={hero.credit}
+						image={hero.image}
+					/> : null
+				}
 				<div className="container">
 					<div className="page-content">
 						<div className="bg-black">
 							<div
 								dangerouslySetInnerHTML={{__html: currentPage.content}} // eslint-disable-line react/no-danger
 							/>
+							{parentPage ?
+								<div
+									dangerouslySetInnerHTML={{__html: parentPage.content}} // eslint-disable-line react/no-danger
+								/> : null
+							}
 						</div>
 					</div>
 				</div>
@@ -38,12 +73,15 @@ export default class PageTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query pageTemplateQuery($id: String!) {
-    wordpressPage(id: { eq: $id }) {
-      ...Page
-    }
-    site {
-      ...Site
-    }
+query defaultPageQuery($id: String!, $landingParent: String = "") {
+  wordpressPage(id: {eq: $id}) {
+	...Page
   }
+  landingParent: wordpressPage(id: {eq: $landingParent}) {
+	  ...Page
+  }
+  site {
+	...Site
+  }
+}
 `;

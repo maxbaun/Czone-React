@@ -1,21 +1,47 @@
 @import '../utils/mixins.css';
 @import '../utils/variables.css';
 
+@keyframes contentFade {
+	from {
+		margin-left: -40px
+	}
+	to {
+		margin-left: 0
+	}
+}
+
 .hero {
 	position: relative;
 }
 
 .inner {
 	height: 200px;
+	position: relative;
 
 	@include tabletUp() {
 		height: 357px;
 	}
 }
 
+.image {
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+	z-index: -1;
+}
+
+.contentWrap {
+	background-color: color($black alpha(30%));
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
 .content {
+	animation: contentFade 0.3s ease-in-out;
 	padding: 20px 0px;
-	margin-left: -40px;
 }
 
 .title,
