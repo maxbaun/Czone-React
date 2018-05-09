@@ -1,72 +1,45 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import graphql from 'graphql';
 
-import Head from '../components/head';
 import Hero from '../components/hero';
+import Seo from '../components/seo';
 import {initPageElements} from '../utils/pageHelpers';
+import {innerHtml} from '../utils/wordpressHelpers';
 
 export default class PageTemplate extends React.Component {
+	static propTypes = {
+		data: PropTypes.object.isRequired,
+		location: PropTypes.object.isRequired
+	}
+
 	componentDidMount() {
 		initPageElements();
 	}
 
-	getHeroData() {
-		const {wordpressPage, landingPageBase} = this.props.data;
-		const heroPage = landingPageBase ? landingPageBase : wordpressPage;
-
-		let title = heroPage.acf.heroTitle;
-
-		if (landingPageBase) {
-			title += ` | ${wordpressPage.acf.landingCity}, ${wordpressPage.acf.landingState}`;
-		}
-
-		return {
-			image: heroPage.image && heroPage.image.localFile ? heroPage.image.localFile.childImageSharp.hero : null,
-			title,
-			subtitle: heroPage.acf.heroSubtitle,
-			credits: heroPage.acf.heroCredit
-		};
-	}
-
-	convertTitle(title) {
-		const div = document.createElement('div');
-		div.innerHTML = title;
-		return div.textContent;
-	}
-
 	render() {
-		const siteMeta = this.props.data.site.siteMeta;
-		const currentPage = this.props.data.wordpressPage;
-		const yoast = currentPage.yoast;
-		const parentPage = this.props.data.landingPageBase;
-		const hero = this.getHeroData();
+		const {currentPage, site, landingPageBase} = this.props.data;
 
 		return (
 			<div>
-				<Head
-					{...yoast}
+				<Seo
+					currentPage={currentPage}
 					location={this.props.location}
-					defaultTitle={`${this.convertTitle(currentPage.title)} | ${siteMeta.title}`}
-					image={currentPage.image ? currentPage.image.localFile.childImageSharp.full.src : null}
-					excerpt={currentPage.excerpt}
+					siteMeta={site.siteMeta}
 				/>
-				{hero.image ?
-					<Hero
-						title={hero.title}
-						subtitle={hero.subtitle}
-						credits={hero.credit}
-						image={hero.image}
-					/> : null
-				}
+				<Hero
+					currentPage={currentPage}
+					parentPage={landingPageBase}
+				/>
 				<div className="container">
 					<div className="page-content">
 						<div className="bg-black">
 							<div
-								dangerouslySetInnerHTML={{__html: currentPage.content}} // eslint-disable-line react/no-danger
+								dangerouslySetInnerHTML={innerHtml(currentPage.content)} // eslint-disable-line react/no-danger
 							/>
-							{parentPage ?
+							{landingPageBase ?
 								<div
-									dangerouslySetInnerHTML={{__html: parentPage.content}} // eslint-disable-line react/no-danger
+									dangerouslySetInnerHTML={innerHtml(landingPageBase.content)} // eslint-disable-line react/no-danger
 								/> : null
 							}
 						</div>
@@ -79,7 +52,7 @@ export default class PageTemplate extends React.Component {
 
 export const pageQuery = graphql`
 query defaultPageQuery($id: String!, $landingPageBase: Int = 0) {
-  wordpressPage(id: {eq: $id}) {
+  currentPage: wordpressPage(id: {eq: $id}) {
 	...Page
   }
   landingPageBase: wordpressPage(wordpress_id: {eq: $landingPageBase}) {

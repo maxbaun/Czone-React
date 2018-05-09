@@ -1,26 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import graphql from 'graphql';
 
-import Head from '../components/head';
+import Seo from '../components/seo';
 import {initPageElements} from '../utils/pageHelpers';
 
-export default class PageTemplate extends React.Component {
+export default class FullWidthTemplate extends React.Component {
+	static propTypes = {
+		data: PropTypes.object.isRequired,
+		location: PropTypes.object.isRequired
+	}
+
 	componentDidMount() {
 		initPageElements();
 	}
 
 	render() {
-		const siteMeta = this.props.data.site.siteMeta;
-		const currentPage = this.props.data.wordpressPage;
-		const yoast = currentPage.yoast;
+		const {site, currentPage} = this.props.data;
 
 		return (
 			<div>
-				<Head
-					{...yoast}
+				<Seo
+					currentPage={currentPage}
 					location={this.props.location}
-					defaultTitle={`${siteMeta.title} | ${currentPage.title}`}
-					image={currentPage.image.localFile ? currentPage.image.localFile.childImageSharp.full.src : null}
+					siteMeta={site.siteMeta}
 				/>
 				<div
 					dangerouslySetInnerHTML={{__html: currentPage.content}} // eslint-disable-line react/no-danger
@@ -32,7 +35,7 @@ export default class PageTemplate extends React.Component {
 
 export const pageQuery = graphql`
 query fullWidthPageQuery($id: String!) {
-  wordpressPage(id: { eq: $id }) {
+  currentPage: wordpressPage(id: { eq: $id }) {
 	...Page
   }
   site {

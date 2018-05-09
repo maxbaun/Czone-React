@@ -198,3 +198,9 @@ export const stripHtml = string => {
 
 	return string.replace(/(<([^>]+)>)/ig, '');
 };
+
+export const htmlToString = string => {
+	const div = document.createElement('div');
+	div.innerHTML = string;
+	return div.textContent;
+};

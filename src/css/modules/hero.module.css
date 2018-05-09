@@ -49,6 +49,10 @@
 	padding: 20px 0px;
 }
 
+.contentInner {
+	position: relative;
+}
+
 .title,
 .subtitle {
 	color: $white;
@@ -75,9 +79,9 @@
 .credit {
 	position: absolute;
 	left: 0;
-	bottom: -50px;
+	bottom: -80px;
 
 	@include tabletUp() {
-		bottom: -180px;
+		bottom: -252px;
 	}
 }

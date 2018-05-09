@@ -65,8 +65,8 @@ export default class YoutubeGallery extends Component {
 					id={`${this.props.portfolio}-modal`}
 					active={activeVideo ? [activeVideo] : []}
 					onClose={this.handleClose}
-					title={activeVideo ? activeVideo.snippet.title : ''}
 					size="auto"
+					showClose={false}
 				>
 					<div className={CSS.videoWrap}>
 						{activeVideo ?

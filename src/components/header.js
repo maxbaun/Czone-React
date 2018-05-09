@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 import Logo from '../img/logo.png';
+import {replaceLinks} from '../utils/wordpressHelpers';
 
 const Header = ({menu}) => {
 	return (
@@ -34,7 +36,7 @@ const Header = ({menu}) => {
 									<li key={item.url} className={itemClass.join(' ')}>
 										<Link
 											dangerouslySetInnerHTML={{__html: item.title}} // eslint-disable-line react/no-danger
-											to={getLink(item.url)}
+											to={replaceLinks(item.url)}
 										/>
 										{hasDropdown ?
 											<ul role="menu" className="dropdown-menu">
@@ -43,7 +45,7 @@ const Header = ({menu}) => {
 														<li key={child.url}>
 															<Link
 																dangerouslySetInnerHTML={{__html: child.title}} // eslint-disable-line react/no-danger
-																to={getLink(child.url)}
+																to={replaceLinks(child.url)}
 															/>
 														</li>
 													);
@@ -61,12 +63,14 @@ const Header = ({menu}) => {
 	);
 };
 
-function getLink(link) {
-	return link
-		.replace('http://czone.info', '')
-		.replace('https://czone.info', '')
-		.replace('http://czonemusic.com', '')
-		.replace('https://czonemusic.com', '');
-}
+Header.propTypes = {
+	menu: PropTypes.object
+};
+
+Header.defaultProps = {
+	menu: {
+		items: []
+	}
+};
 
 export default Header;

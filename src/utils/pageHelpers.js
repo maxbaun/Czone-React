@@ -12,6 +12,7 @@ export const initPageElements = () => {
 	initGallery();
 	initYoutubeGalleries();
 	initScrolls();
+	initProfiles();
 };
 
 function initCarousel() {
@@ -56,6 +57,21 @@ function initGallery() {
 			gallery.style.opacity = 1;
 
 			baguetteBox.run('.gallery');
+		});
+	});
+}
+
+function initProfiles() {
+	const profiles = Array.from(document.querySelectorAll('.profile-portfolio'));
+
+	profiles.forEach(profile => {
+		imagesLoaded(profile, () => {
+			new Isotope(profile, { // eslint-disable-line no-new
+				itemSelector: '.portfolio-item',
+				layoutMode: 'masonry'
+			});
+
+			profile.style.opacity = 1;
 		});
 	});
 }
