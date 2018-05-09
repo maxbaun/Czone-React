@@ -18,8 +18,8 @@
 	height: 200px;
 	position: relative;
 
-	@include tabletUp() {
-		height: 357px;
+	@include tabletUp {
+		height: 400px;
 	}
 }
 
@@ -28,6 +28,11 @@
 	overflow: hidden;
 	width: 100%;
 	z-index: -1;
+
+	> div,
+	> div > div {
+		height: 100%;
+	}
 }
 
 .contentWrap {

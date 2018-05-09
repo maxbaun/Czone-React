@@ -1,6 +1,5 @@
 import React from 'react';
 import graphql from 'graphql';
-import Img from 'gatsby-image';
 
 import Head from '../components/head';
 import Hero from '../components/hero';
@@ -12,28 +11,34 @@ export default class PageTemplate extends React.Component {
 	}
 
 	getHeroData() {
-		const {wordpressPage, landingParent} = this.props.data;
-		const heroPage = landingParent ? landingParent : wordpressPage;
+		const {wordpressPage, landingPageBase} = this.props.data;
+		const heroPage = landingPageBase ? landingPageBase : wordpressPage;
 
 		let title = heroPage.acf.heroTitle;
 
-		if (landingParent) {
+		if (landingPageBase) {
 			title += ` | ${wordpressPage.acf.landingCity}, ${wordpressPage.acf.landingState}`;
 		}
 
 		return {
-			image: heroPage.image ? heroPage.image.localFile.childImageSharp.hero : null,
+			image: heroPage.image && heroPage.image.localFile ? heroPage.image.localFile.childImageSharp.hero : null,
 			title,
 			subtitle: heroPage.acf.heroSubtitle,
-			credits: heroPage.acf.heroCredits
+			credits: heroPage.acf.heroCredit
 		};
+	}
+
+	convertTitle(title) {
+		const div = document.createElement('div');
+		div.innerHTML = title;
+		return div.textContent;
 	}
 
 	render() {
 		const siteMeta = this.props.data.site.siteMeta;
 		const currentPage = this.props.data.wordpressPage;
 		const yoast = currentPage.yoast;
-		const parentPage = this.props.data.landingParent;
+		const parentPage = this.props.data.landingPageBase;
 		const hero = this.getHeroData();
 
 		return (
@@ -41,7 +46,7 @@ export default class PageTemplate extends React.Component {
 				<Head
 					{...yoast}
 					location={this.props.location}
-					defaultTitle={`${siteMeta.title} | ${currentPage.title}`}
+					defaultTitle={`${this.convertTitle(currentPage.title)} | ${siteMeta.title}`}
 					image={currentPage.image ? currentPage.image.localFile.childImageSharp.full.src : null}
 					excerpt={currentPage.excerpt}
 				/>
@@ -73,11 +78,11 @@ export default class PageTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-query defaultPageQuery($id: String!, $landingParent: String = "") {
+query defaultPageQuery($id: String!, $landingPageBase: Int = 0) {
   wordpressPage(id: {eq: $id}) {
 	...Page
   }
-  landingParent: wordpressPage(id: {eq: $landingParent}) {
+  landingPageBase: wordpressPage(wordpress_id: {eq: $landingPageBase}) {
 	  ...Page
   }
   site {

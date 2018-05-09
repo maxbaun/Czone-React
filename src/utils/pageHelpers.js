@@ -3,10 +3,15 @@ import imagesLoaded from 'imagesloaded';
 import Isotope from 'isotope-layout';
 import baguetteBox from 'baguettebox.js';
 
+import YoutubeReact from '../youtubeReact';
+import {ScrollTo} from './componentHelpers';
+
 export const initPageElements = () => {
 	initCarousel();
 	initDjep();
 	initGallery();
+	initYoutubeGalleries();
+	initScrolls();
 };
 
 function initCarousel() {
@@ -51,6 +56,31 @@ function initGallery() {
 			gallery.style.opacity = 1;
 
 			baguetteBox.run('.gallery');
+		});
+	});
+}
+
+function initYoutubeGalleries() {
+	const galleries = Array.from(document.querySelectorAll('[data-youtube-playlist]'));
+
+	galleries.forEach(gallery => {
+		new YoutubeReact(gallery); // eslint-disable-line no-new
+	});
+}
+
+function initScrolls() {
+	const scrolls = Array.from(document.querySelectorAll('[data-scroll'));
+
+	scrolls.forEach(scroll => {
+		const to = scroll.getAttribute('data-scroll');
+		const toElem = document.querySelector(to);
+
+		scroll.addEventListener('click', () => {
+			// eslint-disable-next-line no-new
+			new ScrollTo(toElem, {
+				container: window,
+				duration: 300
+			});
 		});
 	});
 }

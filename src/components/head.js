@@ -14,18 +14,26 @@ const Head = ({title, defaultTitle, metaKeywords, metaDescription, canonical, no
 		metaDescription = stripHtml(excerpt);
 	}
 
+	if (ogTitle === '') {
+		ogTitle = title && title !== '' ? title : defaultTitle;
+	}
+
+	if (twitterTitle === '') {
+		twitterTitle = title && title !== '' ? title : defaultTitle;
+	}
+
 	const meta = [
 		{name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
 		{name: 'description', content: metaDescription},
 		{name: 'keywords', content: metaKeywords},
 		{property: 'og:type', content: 'website'},
-		{property: 'og:title', content: ogTitle && ogTitle !== '' ? ogTitle : title},
+		{property: 'og:title', content: ogTitle},
 		{property: 'og:description', content: ogDescription && ogDescription !== '' ? ogDescription : metaDescription},
 		{property: 'og:image', content: ogImage && ogImage !== '' ? ogImage : image},
 		{property: 'og:url', content: window.location.href},
 		{property: 'twitter:card', content: 'summary'},
 		{property: 'twitter:site', content: '@czonemusic'},
-		{property: 'twitter:title', content: twitterTitle && twitterTitle !== '' ? twitterTitle : title},
+		{property: 'twitter:title', content: twitterTitle},
 		{property: 'twitter:description', content: twitterDescription && twitterDescription === '' ? metaDescription : twitterDescription},
 		{property: 'twitter:image', content: twitterImage && twitterImage !== '' ? twitterImage : image},
 		{property: 'robots', content: noIndex},
@@ -43,12 +51,12 @@ const Head = ({title, defaultTitle, metaKeywords, metaDescription, canonical, no
 	return (
 		<Helmet
 			htmlAttributes={{lang: 'en', amp: undefined}}
-			title={title}
-			defaultTitle={defaultTitle}
 			titleAttributes={{itemprop: 'name', lang: 'en'}}
 			meta={meta.map(data => data.content && data.content !== '' ? data : {})}
 			link={links.map(link => link.href && link.href !== '' ? link : {})}
-		/>
+		>
+			<title>{title && title !== '' ? title : defaultTitle}</title>
+		</Helmet>
 	);
 };
 

@@ -25,9 +25,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 							template
 							parent: wordpress_parent
 							acf {
-								landingPageParent: post_landing_page_parent {
-									wpid: wordpress_id
-								}
+								landingPageBase: landing_page_base
 							}
 						}
 					}
@@ -57,7 +55,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 					component: getPageTemplate(edge.node.template),
 					context: {
 						id: edge.node.id,
-						landingParent: getLandingParent(edge.node, result.data.allWordpressPage.edges)
+						landingPageBase: parseInt(edge.node.acf.landingPageBase, 10) // getLandingBase(edge.node, result.data.allWordpressPage.edges)
 					}
 				});
 			});
@@ -84,12 +82,22 @@ function getPageTemplate(template) {
 	return path.resolve(`./src/templates/page.js`);
 }
 
-function getLandingParent(page, pages) {
-	if (!page.acf || !page.acf.landingPageParent) {
+function getLandingBase(page, pages) {
+	if (!page.acf || !page.acf.landingPageBase) {
 		return;
 	}
 
-	const parent = pages.find(p => p.node.wpid === page.acf.landingPageParent.wpid);
+	const parent = pages.find(p => {
+		console.log('===========');
+		console.log(p.node.wpid, typeof p.node.wpid);
+		console.log(parseInt(page.acf.landingPageBase, 10), typeof parseInt(page.acf.landingPageBase, 10));
+		console.log('===========');
+
+		return p.node.wpid === parseInt(page.acf.landingPageBase, 10);
+	});
+
+	console.log(parseInt(page.acf.landingPageBase, 10));
+	console.log(parent);
 
 	if (!parent) {
 		return;

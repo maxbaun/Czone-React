@@ -14,9 +14,9 @@ const Header = ({menu}) => {
 						<span className="icon-bar"/>
 						<span className="icon-bar"/>
 					</button>
-					<a className="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
+					<Link className="navbar-brand" to="/">
 						<img src={Logo}/>
-					</a>
+					</Link>
 				</div>
 				<nav className="collapse navbar-collapse" role="navigation">
 					<div className="menu-main-menu-container">

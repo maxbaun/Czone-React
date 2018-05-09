@@ -10,32 +10,25 @@ $md-max : 1199px;
 
 @mixin widescreen{
 	@media (min-width: $lg){
-		@content;
+		@content
 	}
 }
 
 @mixin desktop{
 	@media (min-width: $md) and (max-width: $md-max){
-		@content;
+		@content
 	}
 }
 
 @mixin desktopUp {
 	@media (min-width: $md){
-		@content;
+		@content
 	}
 }
 
-@custom-media --mobile(max-width: $xs-max);
-@custom-media --collapseDown (max-width: $sm-max);
-
-@custom-media --smallUp (min-width: $xs);
-@custom-media --tabletUp (min-width: $sm);
-@custom-media --desktopUp (min-width: $md);
-
 @mixin tablet{
 	@media (min-width: $sm) and (max-width: $sm-max){
-		@content;
+		@content
 	}
 }
 
@@ -47,27 +40,20 @@ $md-max : 1199px;
 
 @mixin mobile{
 	@media (max-width: $xs-max){
-		@content;
+		@content
 	}
 }
 
 @mixin small{
 	@media (max-width: $sm-max){
-		@content;
+		@content
 	}
 }
 
 @mixin widescreenUp {
 	@media (min-width: $lg) {
-		@content;
+		@content
 	}
-}
-
-@mixin fontSize($sizeValue: 1.6, $line: $sizeValue * 1.5) {
-	font-size: calc($sizeValue * 1px) !important;
-	line-height: calc($line * 1px) !important;
-	font-size: calc(calc($line / 10) * 1rem) !imporant; /* stylelint-disable */
-	line-height: calc(calc($line / 10) * 1rem) !imporant;
 }
 
 @mixin noLink {

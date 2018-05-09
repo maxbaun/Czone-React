@@ -38,11 +38,13 @@ fragment Page on wordpress__PAGE {
 	image: featured_media {
 		localFile{
 			childImageSharp{
-				hero: resolutions(width: 1600, height: 357, cropFocus: ENTROPY){
-					src
-					height
-					width
-					srcSet
+				hero: sizes(maxHeight: 400, maxWidth: 1600) {
+					base64
+		            aspectRatio
+		            src
+		            srcSet
+		            sizes
+		            originalImg
 				}
 				full: resolutions{
 					src

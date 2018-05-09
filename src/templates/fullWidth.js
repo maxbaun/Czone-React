@@ -1,17 +1,18 @@
 import React from 'react';
 import graphql from 'graphql';
-import Img from 'gatsby-image';
 
 import Head from '../components/head';
+import {initPageElements} from '../utils/pageHelpers';
 
 export default class PageTemplate extends React.Component {
+	componentDidMount() {
+		initPageElements();
+	}
+
 	render() {
-		console.log(this.props);
 		const siteMeta = this.props.data.site.siteMeta;
 		const currentPage = this.props.data.wordpressPage;
 		const yoast = currentPage.yoast;
-
-		console.log(currentPage);
 
 		return (
 			<div>

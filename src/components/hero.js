@@ -10,7 +10,7 @@ const Hero = ({title, subtitle, image, credit}) => {
 			<div className={CSS.inner}>
 				<div className={CSS.image}>
 					<Img
-						resolutions={image}
+						sizes={image}
 					/>
 				</div>
 				<div className={CSS.contentWrap}>
