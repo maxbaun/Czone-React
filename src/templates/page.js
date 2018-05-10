@@ -6,6 +6,7 @@ import Hero from '../components/hero';
 import Seo from '../components/seo';
 import {initPageElements} from '../utils/pageHelpers';
 import {innerHtml} from '../utils/wordpressHelpers';
+import PageNav from '../components/pageNav';
 
 export default class PageTemplate extends React.Component {
 	static propTypes = {
@@ -18,7 +19,7 @@ export default class PageTemplate extends React.Component {
 	}
 
 	render() {
-		const {currentPage, site, landingPageBase} = this.props.data;
+		const {currentPage, site, landingPageBase, servicesNav} = this.props.data;
 
 		return (
 			<div>
@@ -30,6 +31,9 @@ export default class PageTemplate extends React.Component {
 				<Hero
 					currentPage={currentPage}
 					parentPage={landingPageBase}
+				/>
+				<PageNav
+					links={servicesNav.items}
 				/>
 				<div className="container">
 					<div className="page-content">
@@ -60,6 +64,9 @@ query defaultPageQuery($id: String!, $landingPageBase: Int = 0) {
   }
   site {
 	...Site
+  }
+  servicesNav: wordpressWpApiMenusMenusItems(name: {eq: "Footer 1"}) {
+	...MenuItems
   }
 }
 `;

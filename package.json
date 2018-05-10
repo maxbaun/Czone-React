@@ -19,6 +19,7 @@
 		"predeploy": "gatsby build --prefix-paths"
 	},
 	"dependencies": {
+		"axios": "^0.18.0",
 		"baguettebox.js": "^1.10.0",
 		"bootstrap-sass": "3.3.7",
 		"flickity": "^2.1.1",
@@ -35,7 +36,8 @@
 		"react-helmet": "^5.2.0",
 		"react-icons": "^2.2.5",
 		"react-intercom": "^1.0.14",
-		"react-motion": "^0.5.2"
+		"react-motion": "^0.5.2",
+		"react-url-query": "^1.4.0"
 	},
 	"devDependencies": {
 		"babel-eslint": "8.2.3",

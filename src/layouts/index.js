@@ -5,47 +5,47 @@ import graphql from 'graphql';
 import '../css/main.scss';
 
 import Header from '../components/header';
+import Footer from '../components/footer';
 
 export default class DefaultLayout extends Component {
 	static propTypes = {
 		children: PropTypes.func.isRequired,
-		location: PropTypes.object.isRequired
+		location: PropTypes.object.isRequired,
+		data: PropTypes.object.isRequired
 	}
 
-	// $('.gallery').each(function () {
-	// 	$(this).imagesLoaded(function (e) {
-	// 		var gallery = e.elements[0];
-	// 		$(gallery).isotope({
-	// 			itemSelector: '.gallery-item',
-	// 			layoutMode: 'masonry'
-	// 		});
-	//
-	// 		$(gallery).css('opacity', 1);
-	// 	});
-	// });
-
 	render() {
+		const {footer1, footer2, footer3} = this.props.data;
+
 		return (
 			<div>
-				<Header menu={this.props.data.mainMenu}/>
+				<Header
+					menu={this.props.data.mainMenu}
+				/>
 				<div>{this.props.children()}</div>
+				<Footer
+					footer1={footer1}
+					footer2={footer2}
+					footer3={footer3}
+				/>
 			</div>
 		);
 	}
 }
 
 export const mainMenuQuery = graphql`
-query mainMenuQuery {
+query menuQuery {
 	mainMenu: wordpressWpApiMenusMenusItems(name: {eq: "Main Menu"}) {
-		name
-		items {
-		  title
-		  url
-		  items: wordpress_children {
-			title
-			url
-		  }
-		}
+		...MenuItems
+	}
+	footer1: wordpressWpApiMenusMenusItems(name: {eq: "Footer 1"}) {
+		...MenuItems
+	}
+	footer2: wordpressWpApiMenusMenusItems(name: {eq: "Footer 2"}) {
+		...MenuItems
+	}
+	footer3: wordpressWpApiMenusMenusItems(name: {eq: "Footer 3"}) {
+		...MenuItems
 	}
 }
 `;

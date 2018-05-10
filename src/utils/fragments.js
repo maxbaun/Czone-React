@@ -132,6 +132,20 @@ fragment ProfilePreview on wordpress__wp_profile {
   }
 `;
 
+export const MenuItems = graphql`
+fragment MenuItems on wordpress__wp_api_menus_menus_items {
+	name
+	items {
+	  title
+	  url
+	  items: wordpress_children {
+		title
+		url
+	  }
+	}
+  }
+`;
+
 export const Site = graphql`
 fragment Site on Site {
 	id

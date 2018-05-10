@@ -1,6 +1,20 @@
+const webpack = require('webpack');
 const slash = require('slash');
 const Promise = require('bluebird');
 const path = require('path');
+
+exports.modifyWebpackConfig = ({config}) => {
+	const isDev = process.env.NODE_ENV === 'development';
+	config.merge({
+		plugins: [
+			new webpack.DefinePlugin({
+				API_URL: JSON.stringify(isDev ? 'http://czone.info/wp-json' : 'http://czonemusic.com/wp-json')
+			})
+		]
+	});
+
+	return config;
+};
 
 exports.createPages = ({graphql, boundActionCreators}) => {
 	const {createPage} = boundActionCreators;
@@ -109,6 +123,10 @@ function getPageTemplate(template) {
 
 	if (template === 'template-profiles.php') {
 		return path.resolve(`./src/templates/profiles.js`);
+	}
+
+	if (template === 'template-pay.php') {
+		return path.resolve(`./src/templates/pay.js`);
 	}
 
 	return path.resolve(`./src/templates/page.js`);
