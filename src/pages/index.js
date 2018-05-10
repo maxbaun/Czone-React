@@ -5,7 +5,7 @@ import graphql from 'graphql';
 import Seo from '../components/seo';
 import {initPageElements} from '../utils/pageHelpers';
 
-export default class FullWidthTemplate extends React.Component {
+export default class IndexPage extends React.Component {
 	static propTypes = {
 		data: PropTypes.object.isRequired,
 		location: PropTypes.object.isRequired
@@ -16,17 +16,17 @@ export default class FullWidthTemplate extends React.Component {
 	}
 
 	render() {
-		const {site, currentPage} = this.props.data;
+		const {site, homePage} = this.props.data;
 
 		return (
 			<div>
 				<Seo
-					currentPage={currentPage}
+					currentPage={homePage}
 					location={this.props.location}
 					siteMeta={site.siteMeta}
 				/>
 				<div
-					dangerouslySetInnerHTML={{__html: currentPage.content}} // eslint-disable-line react/no-danger
+					dangerouslySetInnerHTML={{__html: homePage.content}} // eslint-disable-line react/no-danger
 				/>
 			</div>
 		);
@@ -34,8 +34,8 @@ export default class FullWidthTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-query fullWidthPageQuery($id: String!) {
-  currentPage: wordpressPage(id: { eq: $id }) {
+query homePageQuery {
+  homePage: wordpressPage(slug: {eq: "home"}) {
 	...Page
   }
   site {

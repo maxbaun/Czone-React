@@ -47,6 +47,7 @@ export default class Html extends React.Component {
 					/>
 					{this.props.postBodyComponents}
 					<script src="//www.weddingwire.com/assets/vendor/widgets/ww-rated-2013-a2e92ba5dcef1cb9b21f7dc0bfb819ad.js" type="application/javascript"/>
+					<script src="//www.weddingwire.com/assets/vendor/widgets/my-reviews-477a27662bf1bc2843763ee1950ed856.js" type="application/javascript"/>
 					<script src="//czoneplanning.com/check_req_info_form.js?ver=1.0.3" type="application/javascript"/>
 					<script src="//apis.google.com/js/client.js?onload=handleGoogleLoad" type="application/javascript"/>
 				</body>

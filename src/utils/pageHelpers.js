@@ -1,14 +1,20 @@
-import Flickity from 'flickity';
-import imagesLoaded from 'imagesloaded';
-import Isotope from 'isotope-layout';
-import baguetteBox from 'baguettebox.js';
+let Flickity;
+let imagesLoaded;
+let Isotope;
+let baguetteBox;
 
 import YoutubeReact from '../youtubeReact';
 import {ScrollTo} from './componentHelpers';
 
 export const initPageElements = () => {
+	Flickity = require('flickity');
+	imagesLoaded = require('imagesLoaded');
+	Isotope = require('isotope-layout');
+	baguetteBox = require('baguettebox.js');
+
 	initCarousel();
 	initDjep();
+	initWeddingWire();
 	initGallery();
 	initYoutubeGalleries();
 	initScrolls();
@@ -28,12 +34,6 @@ function initCarousel() {
 }
 
 function initDjep() {
-	window.WeddingWire.ensureInit(() => {
-		window.WeddingWire.createWWRated2013({
-			vendorId: '45a90fd32bc668fa'
-		});
-	});
-
 	window.SendPasswordWindow = () => {
 		const w = window.open(
 			'http://czoneplanning.com/sendpassword.asp?typeoflogon=client',
@@ -43,6 +43,23 @@ function initDjep() {
 
 		w.focus();
 	};
+}
+
+function initWeddingWire() {
+	const testimonitalsWidget = document.querySelector('#ww-widget-reviews');
+
+	if (testimonitalsWidget) {
+		window.WeddingWire.createReview({
+			vendorId: '45a90fd32bc668fa',
+			id: 'ww-widget-reviews'
+		});
+	}
+
+	window.WeddingWire.ensureInit(() => {
+		window.WeddingWire.createWWRated2013({
+			vendorId: '45a90fd32bc668fa'
+		});
+	});
 }
 
 function initGallery() {
@@ -77,11 +94,20 @@ function initProfiles() {
 }
 
 function initYoutubeGalleries() {
+	const gapiKey = 'AIzaSyBTBN9fjVW6TmIA9565RibHeUGOKxzDupc';
+
 	const galleries = Array.from(document.querySelectorAll('[data-youtube-playlist]'));
 
 	galleries.forEach(gallery => {
 		new YoutubeReact(gallery); // eslint-disable-line no-new
 	});
+
+	window.handleGoogleLoad = () => {
+		window.gapi.client.setApiKey(gapiKey);
+		window.gapi.client.load('youtube', 'v3', () => {
+			window.youtubeLoaded = true;
+		});
+	};
 }
 
 function initScrolls() {

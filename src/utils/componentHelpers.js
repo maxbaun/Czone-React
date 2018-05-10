@@ -200,6 +200,10 @@ export const stripHtml = string => {
 };
 
 export const htmlToString = string => {
+	if (typeof document === 'undefined') {
+		return string;
+	}
+
 	const div = document.createElement('div');
 	div.innerHTML = string;
 	return div.textContent;

@@ -36,7 +36,10 @@ export default class YoutubeGallery extends Component {
 			this.youtube = new Youtube(this.props.playlistId, this.props.portfolio);
 		}
 
-		if (this.youtube.isReady()) {
+		console.log(window.youtubeLoaded);
+
+
+		if (window.youtubeLoaded) {
 			return this.youtube.loadPlaylist()
 				.then(this.setPlaylistData);
 		}

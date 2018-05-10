@@ -30,7 +30,7 @@ const Head = ({title, defaultTitle, metaKeywords, metaDescription, canonical, no
 		{property: 'og:title', content: ogTitle},
 		{property: 'og:description', content: ogDescription && ogDescription !== '' ? ogDescription : metaDescription},
 		{property: 'og:image', content: ogImage && ogImage !== '' ? ogImage : image},
-		{property: 'og:url', content: window.location.href},
+		{property: 'og:url', content: 'http://czonemusic.com'},
 		{property: 'twitter:card', content: 'summary'},
 		{property: 'twitter:site', content: '@czonemusic'},
 		{property: 'twitter:title', content: twitterTitle},

@@ -1,13 +1,3 @@
-const gapiKey = 'AIzaSyBTBN9fjVW6TmIA9565RibHeUGOKxzDupc';
-window.googleLoaded = false;
-
-window.handleGoogleLoad = () => {
-	window.gapi.client.setApiKey(gapiKey);
-	window.gapi.client.load('youtube', 'v3', () => {
-		window.googleLoaded = true;
-	});
-};
-
 export default class YoutubePlaylist {
 	constructor(playlistId, portfolioId) {
 		this.playlistId = playlistId;
@@ -17,10 +7,6 @@ export default class YoutubePlaylist {
 		this.setPlaylistData = this.setPlaylistData.bind(this);
 		this.getPlaylistItems = this.getPlaylistItems.bind(this);
 		this.setPlaylistItemData = this.setPlaylistItemData.bind(this);
-	}
-
-	isReady() {
-		return window.googleLoaded;
 	}
 
 	loadPlaylist() {

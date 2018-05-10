@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: `C-Zone Entertainment`,
-		subtitle: `Data fetched from a site hosted on wordpress.com`
+		subtitle: `Premiere DJs & Musicians | Servicing Greater Boston & New England | 617.320.0723`
 	},
 	plugins: [
 		`gatsby-plugin-sass`,
@@ -33,6 +33,12 @@ module.exports = {
 		},
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
-		'gatsby-plugin-react-helmet'
+		'gatsby-plugin-react-helmet',
+		{
+			resolve: `gatsby-plugin-google-analytics`,
+			options: {
+				trackingId: `UA-4072057-1`
+			}
+		}
 	]
 };
