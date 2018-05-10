@@ -8,7 +8,7 @@ import {ScrollTo} from './componentHelpers';
 
 export const initPageElements = () => {
 	Flickity = require('flickity');
-	imagesLoaded = require('imagesLoaded');
+	imagesLoaded = require('imagesloaded');
 	Isotope = require('isotope-layout');
 	baguetteBox = require('baguettebox.js');
 
