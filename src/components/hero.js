@@ -12,7 +12,7 @@ const Hero = ({currentPage, parentPage}) => {
 
 	let title = heroPage.acf.heroTitle;
 
-	if (parentPage) {
+	if (parentPage && parentPage.id) {
 		title += ` | ${currentPage.acf.landingCity}, ${currentPage.acf.landingState}`;
 	}
 

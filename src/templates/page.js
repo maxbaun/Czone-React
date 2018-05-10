@@ -28,13 +28,17 @@ export default class PageTemplate extends React.Component {
 					location={this.props.location}
 					siteMeta={site.siteMeta}
 				/>
-				<Hero
-					currentPage={currentPage}
-					parentPage={landingPageBase}
-				/>
-				<PageNav
-					links={servicesNav.items}
-				/>
+				{currentPage.image || (landingPageBase && landingPageBase.image) ?
+					<div>
+						<Hero
+							currentPage={currentPage}
+							parentPage={landingPageBase}
+						/>
+						<PageNav
+							links={servicesNav.items}
+						/>
+					</div> : null
+				}
 				<div className="container">
 					<div className="page-content">
 						<div className="bg-black">

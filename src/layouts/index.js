@@ -22,7 +22,13 @@ export default class DefaultLayout extends Component {
 				<Header
 					menu={this.props.data.mainMenu}
 				/>
-				<div>{this.props.children()}</div>
+				<div className="wrap" role="document">
+					<div className="content">
+						<main className="main">
+							{this.props.children()}
+						</main>
+					</div>
+				</div>
 				<Footer
 					footer1={footer1}
 					footer2={footer2}
