@@ -94,20 +94,13 @@ function initProfiles() {
 }
 
 function initYoutubeGalleries() {
-	const gapiKey = 'AIzaSyBTBN9fjVW6TmIA9565RibHeUGOKxzDupc';
+	window.handleGoogleLoad = () => {};
 
 	const galleries = Array.from(document.querySelectorAll('[data-youtube-playlist]'));
 
 	galleries.forEach(gallery => {
 		new YoutubeReact(gallery); // eslint-disable-line no-new
 	});
-
-	window.handleGoogleLoad = () => {
-		window.gapi.client.setApiKey(gapiKey);
-		window.gapi.client.load('youtube', 'v3', () => {
-			window.youtubeLoaded = true;
-		});
-	};
 }
 
 function initScrolls() {

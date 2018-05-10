@@ -36,12 +36,18 @@ export default class YoutubeGallery extends Component {
 			this.youtube = new Youtube(this.props.playlistId, this.props.portfolio);
 		}
 
-		console.log(window.youtubeLoaded);
-
-
-		if (window.youtubeLoaded) {
+		if (this.youtube.isReady()) {
 			return this.youtube.loadPlaylist()
 				.then(this.setPlaylistData);
+		}
+
+		if (window.gapi && window.gapi.client) {
+			const gapiKey = 'AIzaSyBTBN9fjVW6TmIA9565RibHeUGOKxzDupc';
+
+			window.gapi.client.setApiKey(gapiKey);
+			window.gapi.client.load('youtube', 'v3', () => {
+				window.youtubeLoaded = true;
+			});
 		}
 
 		return setTimeout(() => this.getPlaylist(), 150);

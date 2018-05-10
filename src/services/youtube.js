@@ -9,6 +9,10 @@ export default class YoutubePlaylist {
 		this.setPlaylistItemData = this.setPlaylistItemData.bind(this);
 	}
 
+	isReady() {
+		return Boolean(window.gapi && window.gapi.client && window.gapi.client.youtube);
+	}
+
 	loadPlaylist() {
 		return this.getPlaylist()
 			.then(this.setPlaylistData)
