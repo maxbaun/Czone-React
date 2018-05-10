@@ -1,5 +1,6 @@
 module.exports = {
 	siteMetadata: {
+		siteUrl: `https://www.czonemusic.com`,
 		title: `C-Zone Entertainment`,
 		subtitle: `Premiere DJs & Musicians | Servicing Greater Boston & New England | 617.320.0723`
 	},
@@ -39,6 +40,9 @@ module.exports = {
 			options: {
 				trackingId: `UA-4072057-1`
 			}
+		},
+		{
+			resolve: `gatsby-plugin-sitemap`
 		}
 	]
 };

@@ -1,8 +1,8 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 const NotFound = () => {
 	return (
-		<Fragment>
+		<div>
 			<div className="page-header">
 				<h1 className="text-center"><span className="">Not Found</span></h1>
 			</div>
@@ -13,7 +13,7 @@ const NotFound = () => {
 					<br/>
 				</div>
 			</section>
-		</Fragment>
+		</div>
 	);
 };
 
