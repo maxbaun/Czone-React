@@ -32,9 +32,6 @@ export default class ProfilesTemplate extends Component {
 		const sortedDjs = djs && djs.edges && djs.edges.length ? sortByMenuOrder(djs.edges) : [];
 		const sortedMusicians = musicians && musicians.edges && musicians.edges.length ? sortByMenuOrder(musicians.edges) : [];
 
-		console.log(sortedDjs);
-
-
 		return (
 			<div>
 				<Seo

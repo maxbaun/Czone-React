@@ -20,7 +20,6 @@ export default class ProfileTemplate extends Component {
 	render() {
 		const {profile, site} = this.props.data;
 
-		console.log(profile);
 		const {facebook, instagram} = profile.acf;
 
 		const showIcons = (facebook && facebook !== '') || (instagram && instagram !== '');
