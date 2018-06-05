@@ -3,7 +3,9 @@ export const replaceLinks = str => {
 		.replace('http://czone.info', '')
 		.replace('https://czone.info', '')
 		.replace('http://czonemusic.com', '')
-		.replace('https://czonemusic.com', '');
+		.replace('https://czonemusic.com', '')
+		.replace('http://admin.czonemusic.com', '')
+		.replace('https://admin.czonemusic.com', '');
 };
 
 export const replaceContent = content => {
