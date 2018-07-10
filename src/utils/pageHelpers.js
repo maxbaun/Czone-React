@@ -67,7 +67,8 @@ function initGallery() {
 
 	galleries.forEach(gallery => {
 		imagesLoaded(gallery, () => {
-			new Isotope(gallery, { // eslint-disable-line no-new
+			// eslint-disable-next-line no-new
+			new Isotope(gallery, {
 				itemSelector: '.gallery-item',
 				layoutMode: 'masonry'
 			});
@@ -83,7 +84,8 @@ function initProfiles() {
 
 	profiles.forEach(profile => {
 		imagesLoaded(profile, () => {
-			new Isotope(profile, { // eslint-disable-line no-new
+			// eslint-disable-next-line no-new
+			new Isotope(profile, {
 				itemSelector: '.portfolio-item',
 				layoutMode: 'masonry'
 			});
@@ -104,7 +106,7 @@ function initYoutubeGalleries() {
 }
 
 function initScrolls() {
-	const scrolls = Array.from(document.querySelectorAll('[data-scroll'));
+	const scrolls = Array.from(document.querySelectorAll('[data-scroll]'));
 
 	scrolls.forEach(scroll => {
 		const to = scroll.getAttribute('data-scroll');
