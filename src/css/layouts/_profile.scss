@@ -1,13 +1,69 @@
+.single-profile-social {
+	margin-top: 10px;
 
-.single-profile-social{
-    margin-top: 10px;
-    .fa{
-        font-size: 20px;
-        vertical-align: middle;
-        margin-right: 5px;
-    }
+	.fa {
+		font-size: 20px;
+		vertical-align: middle;
+		margin-right: 5px;
+	}
 }
 
-.single-profile-text{
-    margin-top: 20px;
+.single-profile-text {
+	margin-top: 20px;
+}
+
+.single-profile-image {
+	position: relative;
+}
+
+.single-profile-image-overlay {
+	align-items: center;
+	background-color: rgba(black, 0.3);
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transition: opacity 0.3s ease-in-out;
+	width: 100%;
+	z-index: 1;
+}
+
+.single-profile-play {
+	align-items: center;
+	background-color: $color_blue;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	height: 75px;
+	justify-content: center;
+	transition: all 0.15s ease-in-out;
+	width: 75px;
+
+	&:hover {
+		background-color: $color_dark_blue;
+	}
+
+	> span {
+		font-size: 44px;
+		line-height: 44px;
+		margin-left: 5px;
+	}
+}
+
+.single-profile-modal {
+	position: relative;
+	padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.single-profile-modal-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.single-profile-video-btn {
+	margin: 10px 0;
+	text-align: center;
 }

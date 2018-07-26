@@ -62,6 +62,30 @@
 	}
 }
 
+.xl {
+	composes: wrap;
+	top: 80px;
+	width: 90%;
+	height: auto;
+	max-width: 100%;
+	left: 50%;
+	margin-left: -45%;
+	margin-top: 0;
+
+	.inner {
+		height: auto;
+	}
+
+	.content {
+		overflow: auto;
+	}
+
+	@include tabletUp {
+		margin-left: -320px;
+		width: 640px;
+	}
+}
+
 .fog {
 	position: fixed;
 	top: 0;
@@ -95,13 +119,13 @@
 	position: absolute;
 	top: 12px;
 	right: 12px;
-	width: 16px;
-	height: 20px;
+	width: 20px;
+	height: 45px;
 	z-index: 12;
 
 	a {
-		font-size: 20px;
-		line-height: 20px;
+		font-size: 33px;
+		line-height: 33px;
 		color: $white;
 		cursor: pointer;
 		display: block;
