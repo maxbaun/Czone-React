@@ -40,11 +40,16 @@ export default class ProfileTemplate extends Component {
 
 		const {facebook, instagram, video} = profile.acf;
 
-		const showIcons = (facebook && facebook !== '') || (instagram && instagram !== '');
+		const showIcons =
+			(facebook && facebook !== '') || (instagram && instagram !== '');
 
 		return (
 			<div>
-				<Seo currentPage={profile} location={this.props.location} siteMeta={site.siteMeta}/>
+				<Seo
+					currentPage={profile}
+					location={this.props.location}
+					siteMeta={site.siteMeta}
+				/>
 				<Modal
 					showHeader
 					id="profileVideoModal"
@@ -81,20 +86,23 @@ export default class ProfileTemplate extends Component {
 										/>
 									</h1>
 								</div>
-								<div className="single-profile-image text-center" style={{maxWidth: 440, margin: '0 auto'}}>
-									<Img sizes={profile.image.localFile.childImageSharp.thumbnail}/>
+								<div
+									className="single-profile-image text-center"
+									style={{maxWidth: 440, margin: '0 auto'}}
+								>
+									<Img
+										sizes={profile.image.localFile.childImageSharp.thumbnail}
+									/>
 									{video && video !== '' ? (
 										<div className="single-profile-image-overlay">
-											<span className="single-profile-play" onClick={click(this.handleModalToggle, true)}>
+											<span
+												className="single-profile-play"
+												onClick={click(this.handleModalToggle, true)}
+											>
 												<span className="fa fa-play"/>
 											</span>
 										</div>
 									) : null}
-								</div>
-								<div className="single-profile-video-btn">
-									<button className="btn btn-primary" onClick={click(this.handleModalToggle, true)}>
-										Watch {profile.title}'s Video
-									</button>
 								</div>
 								<div
 									dangerouslySetInnerHTML={innerHtml(profile.content)} // eslint-disable-line react/no-danger
@@ -102,8 +110,20 @@ export default class ProfileTemplate extends Component {
 								/>
 								{showIcons ? (
 									<div className="content-block single-profile-social text-right">
-										{facebook && facebook !== '' ? <a href={facebook} target="__blank" className="fa fa-facebook"/> : null}
-										{instagram && instagram !== '' ? <a href={instagram} target="__blank" className="fa fa-instagram"/> : null}
+										{facebook && facebook !== '' ? (
+											<a
+												href={facebook}
+												target="__blank"
+												className="fa fa-facebook"
+											/>
+										) : null}
+										{instagram && instagram !== '' ? (
+											<a
+												href={instagram}
+												target="__blank"
+												className="fa fa-instagram"
+											/>
+										) : null}
 									</div>
 								) : null}
 							</div>

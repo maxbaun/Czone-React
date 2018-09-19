@@ -17,12 +17,13 @@
 }
 
 .single-profile-image-overlay {
-	align-items: center;
+	align-items: flex-end;
 	background-color: rgba(black, 0.3);
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	height: 100%;
 	left: 0;
+	padding: 0 0 1rem 1rem;
 	position: absolute;
 	top: 0;
 	transition: opacity 0.3s ease-in-out;
