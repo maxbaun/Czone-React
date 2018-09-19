@@ -20,7 +20,7 @@ export default class Modal extends Component {
 		showClose: PropTypes.bool,
 		size: PropTypes.string,
 		fogDismiss: PropTypes.bool
-	}
+	};
 
 	static defaultProps = {
 		title: '',
@@ -84,10 +84,10 @@ export default class Modal extends Component {
 	}
 
 	render() {
-		const {title, children, active, size, fogDismiss, showClose, onClose} = this.props;
+		const {title, children, active, size, fogDismiss, showClose, onClose, showHeader: shouldShowHeader} = this.props;
 		const fogClass = active[0] ? CSS.fogActive : CSS.fog;
 		const bodyClass = [CSS.body];
-		const showHeader = title && title !== '';
+		const showHeader = shouldShowHeader || (title && title !== '');
 
 		if (showHeader) {
 			bodyClass.push(CSS.bodyWithHeader);
@@ -95,10 +95,7 @@ export default class Modal extends Component {
 
 		return (
 			<div className={CSS.modal}>
-				{fogDismiss ?
-					<div className={fogClass} onClick={click(onClose)}/> :
-					<div className={fogClass}/>
-				}
+				{fogDismiss ? <div className={fogClass} onClick={click(onClose)}/> : <div className={fogClass}/>}
 				<TransitionMotion
 					defaultStyles={this.getDefaultStyles()}
 					styles={this.getStyles()}
@@ -117,22 +114,17 @@ export default class Modal extends Component {
 									return (
 										<div key={key} className={CSS[size]} style={dialogStyle}>
 											<div className={CSS.inner}>
-												{showClose ?
+												{showClose ? (
 													<div className={CSS.close}>
-														<a
-															onClick={click(onClose)}
-															className="fa fa-close"
-														/>
-													</div> : null
-												}
-												{showHeader ?
+														<a onClick={click(onClose)} className="fa fa-close"/>
+													</div>
+												) : null}
+												{showHeader ? (
 													<div className={CSS.header}>
 														<h1 className={CSS.title}>{title}</h1>
-													</div> : null
-												}
-												<div className={bodyClass.join(' ')}>
-													{children}
-												</div>
+													</div>
+												) : null}
+												<div className={bodyClass.join(' ')}>{children}</div>
 											</div>
 										</div>
 									);

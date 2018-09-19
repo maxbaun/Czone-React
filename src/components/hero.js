@@ -24,9 +24,7 @@ const Hero = ({currentPage, parentPage}) => {
 		<div className={CSS.hero}>
 			<div className={CSS.inner}>
 				<div className={CSS.image}>
-					<Img
-						sizes={image}
-					/>
+					<Img sizes={image}/>
 				</div>
 				<div className={CSS.contentWrap}>
 					<div className={CSS.content}>
