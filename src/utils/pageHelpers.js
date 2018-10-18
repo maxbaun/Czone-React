@@ -56,6 +56,10 @@ function initWeddingWire() {
 	}
 
 	window.WeddingWire.ensureInit(() => {
+		if (!window.WeddingWire.createWWRated2013) {
+			return;
+		}
+
 		window.WeddingWire.createWWRated2013({
 			vendorId: '45a90fd32bc668fa'
 		});
