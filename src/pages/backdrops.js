@@ -5,8 +5,10 @@ import Helmet from 'react-helmet';
 
 import Seo from '../components/seo';
 import {initPageElements} from '../utils/pageHelpers';
-import PlainText from '../img/photobooth-fonts-plain-text.jpg';
-import Script from '../img/photobooth-fonts-scripts.jpg';
+import GoldSequin from '../img/gold-sequin-backdrop.png';
+import RoseGoldSequin from '../img/rose-gold-sequin-backdrop.png';
+import SilverSequin from '../img/silver-sequin-backdrop.png';
+import WhiteSequin from '../img/white-sequin-backdrop.png';
 
 export default class IndexPage extends React.Component {
 	static propTypes = {
@@ -28,7 +30,7 @@ export default class IndexPage extends React.Component {
 		const imgStyle = {
 			display: 'block',
 			maxWidth: '75%',
-			margin: '0 auto'
+			margin: '0 auto 20px'
 		};
 
 		const blockStyle = {
@@ -53,37 +55,37 @@ export default class IndexPage extends React.Component {
 					</section>
 
 					<div className="row">
-						<div className="col-xs-6 col-sm-3">
+						<div className="col-xs-12 col-sm-6 col-md-3">
 							<div style={blockStyle}>
 								<div className="section-title text-center">
-									<h1>Backdrop 1</h1>
+									<h1>Gold Sequin</h1>
 								</div>
-								<img src={PlainText} style={imgStyle} alt="Photo Booth Fonts - Plain Text"/>
+								<img src={GoldSequin} style={imgStyle} alt="Photo Booth Fonts - Plain Text"/>
 							</div>
 						</div>
-						<div className="col-xs-6 col-sm-3">
+						<div className="col-xs-12 col-sm-6 col-md-3">
 							<div style={blockStyle}>
 								<div className="section-title text-center">
-									<h1>Backdrop 2</h1>
+									<h1>Rose Gold Sequin</h1>
 								</div>
-								<img src={Script} style={imgStyle} alt="Photo Booth Fonts - Script"/>
+								<img src={RoseGoldSequin} style={imgStyle} alt="Photo Booth Fonts - Script"/>
 								<br/>
 							</div>
 						</div>
-						<div className="col-xs-6 col-sm-3">
+						<div className="col-xs-12 col-sm-6 col-md-3">
 							<div style={blockStyle}>
 								<div className="section-title text-center">
-									<h1>Backdrop 3</h1>
+									<h1>Silver Sequin</h1>
 								</div>
-								<img src={PlainText} style={imgStyle} alt="Photo Booth Fonts - Plain Text"/>
+								<img src={SilverSequin} style={imgStyle} alt="Photo Booth Fonts - Plain Text"/>
 							</div>
 						</div>
-						<div className="col-xs-6 col-sm-3">
+						<div className="col-xs-12 col-sm-6 col-md-3">
 							<div style={blockStyle}>
 								<div className="section-title text-center">
-									<h1>Backdrop 4</h1>
+									<h1>White Sequin</h1>
 								</div>
-								<img src={Script} style={imgStyle} alt="Photo Booth Fonts - Script"/>
+								<img src={WhiteSequin} style={imgStyle} alt="Photo Booth Fonts - Script"/>
 							</div>
 						</div>
 					</div>
