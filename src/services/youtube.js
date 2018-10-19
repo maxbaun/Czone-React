@@ -46,7 +46,7 @@ export default class YoutubePlaylist {
 		return new Promise(resolve => {
 			window.gapi.client.youtube.playlistItems.list({
 				playlistId: this.playlistId,
-				maxResults: 10,
+				maxResults: 30,
 				part: 'snippet'
 			}).execute(response => {
 				resolve(response.result.items);
