@@ -15,7 +15,7 @@
 	width: 320px;
 	max-width: 320px;
 	height: 100%;
-	z-index: 11;
+	z-index: 1001;
 	transition: transform 0.15s ease-in-out;
 }
 
@@ -31,7 +31,7 @@
 
 .auto {
 	composes: wrap;
-	top: 150px;
+	top: 15px;
 	width: auto;
 	max-width: none;
 	left: 50%;
@@ -39,7 +39,7 @@
 	transform: translate3d(-50%, 0, 0);
 
 	@include tabletUp {
-		top: 300px;
+		top: 30px;
 	}
 }
 
