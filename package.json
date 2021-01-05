@@ -20,7 +20,7 @@
     "predeploy": "gatsby build --prefix-paths"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "baguettebox.js": "^1.10.0",
     "bootstrap-sass": "3.3.7",
     "flickity": "^2.1.2",
