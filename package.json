@@ -23,6 +23,7 @@
     "axios": "^0.18.0",
     "baguettebox.js": "^1.10.0",
     "bootstrap-sass": "3.3.7",
+    "dotenv": "^10.0.0",
     "flickity": "^2.1.2",
     "font-awesome": "4.7.0",
     "gatsby": "^1.9.277",

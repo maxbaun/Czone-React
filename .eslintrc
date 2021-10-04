@@ -1,33 +1,53 @@
 {
-    "extends": [
-      "xo",
-      "xo-react"
-    ],
-    "parser": "babel-eslint",
-    "parserOptions": {
+  "extends": ["xo", "xo-react"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
       "ecmaFeatures": {
-        "experimentalObjectRestSpread": true,
-        "ecmaFeatures": {
-          "jsx": true
-        }
+        "jsx": true
       }
-    },
-    "rules": {
-      "new-cap": 0,
-      "react/no-unused-prop-types": 0,
-      "react/forbid-component-props": 0,
-      "react/destructuring-assignment": 0,
-      "react/jsx-one-expression-per-line": 0
-    },
-    "globals": {
-      "window": true,
-      "document": true,
-      "fetch": true,
-      "google": true
-    },
-    "plugins": [
-      "react",
-      "babel",
-      "import"
+    }
+  },
+  "rules": {
+    "new-cap": 0,
+    "react/no-unused-prop-types": 0,
+    "react/forbid-component-props": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "flatTernaryExpressions": false,
+        "ignoredNodes": [
+          "ConditionalExpression",
+          "JSXElement",
+          "JSXElement > *",
+          "JSXAttribute",
+          "JSXIdentifier",
+          "JSXNamespacedName",
+          "JSXMemberExpression",
+          "JSXSpreadAttribute",
+          "JSXExpressionContainer",
+          "JSXOpeningElement",
+          "JSXClosingElement",
+          "JSXFragment",
+          "JSXOpeningFragment",
+          "JSXClosingFragment",
+          "JSXText",
+          "JSXEmptyExpression",
+          "JSXSpreadChild"
+        ]
+      }
     ]
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "fetch": true,
+    "google": true
+  },
+  "plugins": ["react", "babel", "import"]
 }
