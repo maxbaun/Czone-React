@@ -97,7 +97,7 @@ export default class YoutubeGallery extends Component {
           ) : (
             data.items.map(item => {
               const style = {
-                backgroundImage: `url(${item.snippet.thumbnails.medium.url})`
+                backgroundImage: item.snippet.thumbnails.medium ? `url(${item.snippet.thumbnails.medium.url})` : null
               };
 
               return (
