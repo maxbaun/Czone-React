@@ -56,7 +56,7 @@
     "eslint-plugin-jest": "21.18.0",
     "eslint-plugin-react": "7.10.0",
     "expose-loader": "^0.7.5",
-    "gatsby-plugin-sharp": "^1.6.48",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-transformer-sharp": "^1.6.27",
     "postcss-cssnext": "3.1.0",
     "postcss-import": "11.1.0",
