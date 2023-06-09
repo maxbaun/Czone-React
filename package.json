@@ -26,7 +26,7 @@
     "dotenv": "^10.0.0",
     "flickity": "^2.1.2",
     "font-awesome": "4.7.0",
-    "gatsby": "^1.9.277",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^1.0.55",
     "gatsby-link": "^1.6.46",
     "gatsby-plugin-google-analytics": "^1.0.31",
