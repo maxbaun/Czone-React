@@ -1,2 +1,0 @@
-webpackJsonp([0x8b8a247124f3],{606:function(e,t){e.exports={data:{site:{id:"Site",siteMeta:{title:"C-Zone Entertainment",subtitle:"Premiere DJs & Musicians | Servicing Greater Boston & New England | 617.320.0723"}}},pathContext:{}}}});
-//# sourceMappingURL=path---backdrops-01b735da43c8ba064ca3.js.map
