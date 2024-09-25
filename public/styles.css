@@ -9051,9 +9051,11 @@ input[type="submit"] {
       margin-right: auto;
       margin-left: auto; } }
 
-@media (max-width: 767px) {
-  .gallery-item {
-    width: 135px; } }
+.gallery-item {
+  width: 135px; }
+  @media (max-width: 767px) {
+    .gallery-item {
+      width: 135px; } }
 
 .portfolio-item {
   width: 135px;

@@ -1,15 +1,17 @@
-.gallery{
-	@include opacity(0);
-	@include transition(all $transition_time $transition_time);
-    @include mobile(){
-        width: $portfolio-width-mobile;
-        margin-right:auto;
-        margin-left:auto;
-    }
+.gallery {
+  @include opacity(0);
+  @include transition(all $transition_time $transition_time);
+  @include mobile() {
+    width: $portfolio-width-mobile;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
-.gallery-item{
-    @include mobile(){
-        width: $portfolio-item-width;
-    }
+.gallery-item {
+  width: $portfolio-item-width;
+
+  @include mobile() {
+    width: $portfolio-item-width;
+  }
 }
