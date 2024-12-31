@@ -254,42 +254,45 @@
 	height: calc(100% - 57px);
 }
 .src-css-modules----profiles-module---profileList---2slkQ {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .src-css-modules----profiles-module---profile---1_rXQ {
-	height: 135px;
-	overflow: hidden;
-	position: relative;
-	width: 135px
+  height: 135px;
+  overflow: hidden;
+  position: relative;
+  width: 135px
+}
+.src-css-modules----profiles-module---profile---1_rXQ:nth-child(11):last-child {
+  margin: 0 auto;
 }
 .src-css-modules----profiles-module---profile---1_rXQ:hover .src-css-modules----profiles-module---profileOverlay---2NsH_ {
-			opacity: 1;
+      opacity: 1;
 }
 .src-css-modules----profiles-module---profileOverlay---2NsH_ {
-	background-color: rgba(0, 0, 0, 0.7);
-	display: table;
-	height: 100%;
-	left: 0;
-	opacity: 1;
-	position: absolute;
-	top: 0;
-	-webkit-transition: opacity 0.15s ease-in-out;
-	transition: opacity 0.15s ease-in-out;
-	width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: table;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  -webkit-transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out;
+  width: 100%;
 }
 @media (min-width: 768px) {
-	.src-css-modules----profiles-module---profileOverlay---2NsH_ {
-		opacity: 0;
-	}
+  .src-css-modules----profiles-module---profileOverlay---2NsH_ {
+    opacity: 0;
+  }
 }
 .src-css-modules----profiles-module---profileTitle---3HxE6 {
-	color: #FFF;
-	display: table-cell;
-	vertical-align: middle;
+  color: #FFF;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /*# sourceMappingURL=build-html-styles.css.map*/

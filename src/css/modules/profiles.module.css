@@ -2,41 +2,45 @@
 @import '../utils/mixins.css';
 
 .profileList {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .profile {
-	height: 135px;
-	overflow: hidden;
-	position: relative;
-	width: 135px;
+  height: 135px;
+  overflow: hidden;
+  position: relative;
+  width: 135px;
 
-	&:hover {
-		.profileOverlay {
-			opacity: 1;
-		}
-	}
+  &:nth-child(11):last-child {
+    margin: 0 auto;
+  }
+
+  &:hover {
+    .profileOverlay {
+      opacity: 1;
+    }
+  }
 }
 
 .profileOverlay {
-	background-color: color($black alpha(70%));
-	display: table;
-	height: 100%;
-	left: 0;
-	opacity: 1;
-	position: absolute;
-	top: 0;
-	transition: opacity 0.15s ease-in-out;
-	width: 100%;
+  background-color: color($black alpha(70%));
+  display: table;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  transition: opacity 0.15s ease-in-out;
+  width: 100%;
 
-	@include tabletUp {
-		opacity: 0;
-	}
+  @include tabletUp {
+    opacity: 0;
+  }
 }
 
 .profileTitle {
-	color: $white;
-	display: table-cell;
-	vertical-align: middle;
+  color: $white;
+  display: table-cell;
+  vertical-align: middle;
 }
