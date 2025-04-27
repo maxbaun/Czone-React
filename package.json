@@ -64,7 +64,7 @@
     "precss": "3.1.2",
     "raw-loader": "^0.5.1",
     "style-loader": "0.21.0",
-    "stylelint": "9.4.0",
+    "stylelint": "15.10.1",
     "stylelint-webpack-plugin": "0.10.5"
   }
 }
